@@ -1,7 +1,7 @@
 import L from "leaflet";
 import { MapContainer, ImageOverlay, Marker, Popup } from "react-leaflet";
 
-const bounds: [[number, number], [number, number]] = [[0, 0], [600, 600]];
+const bounds: [[number, number], [number, number]] = [[0, 0], [650, 650]];
 
 // Crea un'icona base (opzionale)
 const icon = new L.Icon({
@@ -14,45 +14,45 @@ const icon = new L.Icon({
 });
 
 const attractionPositions: Record<string, [number, number]> = {
-    "Argentinosaurus": [80, 520],
-    "Triceratops": [130, 520],
-    "Tyrannosaurus rex": [100, 480],
-    "Carnotaurus": [140, 480],
-    "Velociraptor": [100, 220],
-    "Oviraptor": [130, 230],
-    "Therizinosaurus": [110, 260],
-    "Spinosaurus": [310, 480],
-    "Ouranosaurus": [290, 520],
-    "Mosasaurus": [480, 520],
-    "Elasmosaurus": [520, 500],
-    "Archelon": [480, 480],
-    "Hesperornis": [520, 530],
-    "Ichthyornis": [510, 510],
-    "Giant Ammonites": [490, 540],
-    "Kronosaurus": [510, 140],
-    "Xiphactinus": [480, 120],
-    "Pterosaurs": [320, 120],
-    "Hesperornis (Flying)": [280, 150],
-    "Ichthyornis (Flying)": [330, 180],
-    "Museum": [300, 320],
-    "Genetics Lab": [350, 320],
-    "Restaurants": [280, 350],
-    "Shop": [320, 350]
+    "Argentinosaurus": [540, 420],
+    "Triceratops": [480, 250],
+    "Tyrannosaurus rex": [560, 280],
+    "Carnotaurus": [520, 80],
+    "Velociraptor": [380, 270],
+    "Oviraptor": [230, 240],
+    "Therizinosaurus": [300, 200],
+    "Spinosaurus": [260, 500],
+    "Ouranosaurus": [320, 550],
+    "Mosasaurus": [340, 385],
+    "Elasmosaurus": [300, 360],
+    // "Archelon": [480, 480],
+    "Hesperornis": [360, 510],
+    // "Ichthyornis": [510, 510],
+    "Giant Ammonites": [320, 500],
+    // "Kronosaurus": [300, 140],
+    // "Xiphactinus": [300, 120],
+    "Pterosaurs": [430, 510],
+    "Hesperornis (Flying)": [440, 495],
+    "Ichthyornis (Flying)": [425, 490],
+    "Museum": [350, 315],
+    "Genetics Lab": [375, 375],
+    "Restaurants": [320, 310],
+    "Shop": [350, 325]
 };
 
 const ParkMap = () => {
     return (
         <MapContainer
-        className="size-fit rounded-md border-2 cretaceous-beige-border"
+        className="size-fit rounded-2xl border-2 cretaceous-yellow-border"
         crs={L.CRS.Simple}
         bounds={bounds}
-        style={{ height: '600px', width: '600px' }}
+        style={{ height: '650px', width: '650px' }}
         minZoom={0}
         maxZoom={4}
         maxBounds={bounds}
         maxBoundsViscosity={1}
         >
-        <ImageOverlay url="/IslaNublar.webp" bounds={bounds} />
+        <ImageOverlay url="/jurassic_world_map.jpg" bounds={bounds} />
 
         {Object.entries(attractionPositions).map(([name, position]) => (
             <Marker key={name} position={position} icon={icon}>

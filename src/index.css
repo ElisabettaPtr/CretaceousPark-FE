@@ -15,9 +15,12 @@
 
 /* BORDER COLORS */
 .cretaceous-beige-border { border-color: #D7CCC8; }
+.cretaceous-yellow-border { border-color: #F9A825; }
 
 /* COLORS */
 .cretaceous-red { color: #D32F2F; }
+.cretaceous-beige { color: #D7CCC8; }
+.cretaceous-yellow { color: #F9A825; }
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
