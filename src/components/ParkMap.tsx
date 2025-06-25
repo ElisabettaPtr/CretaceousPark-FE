@@ -1,5 +1,6 @@
 import L from "leaflet";
 import { MapContainer, ImageOverlay, Marker, Popup } from "react-leaflet";
+import { useNavigate } from "react-router-dom";
 
 const bounds: [[number, number], [number, number]] = [[0, 0], [650, 650]];
 
@@ -14,9 +15,9 @@ const icon = new L.Icon({
 });
 
 const attractionPositions: Record<string, [number, number]> = {
-    "Argentinosaurus": [540, 420],
+    "Argentinosaurus": [500, 480],
     "Triceratops": [480, 250],
-    "Tyrannosaurus rex": [560, 280],
+    "Tyrannosaurus rex": [550, 360],
     "Carnotaurus": [520, 80],
     "Velociraptor": [380, 270],
     "Oviraptor": [230, 240],
@@ -32,8 +33,8 @@ const attractionPositions: Record<string, [number, number]> = {
     // "Kronosaurus": [300, 140],
     // "Xiphactinus": [300, 120],
     "Pterosaurs": [430, 510],
-    "Hesperornis (Flying)": [440, 495],
-    "Ichthyornis (Flying)": [425, 490],
+    "Hesperornis(flying)": [440, 495],
+    "Ichthyornis(flying)": [425, 490],
     "Museum": [350, 315],
     "Genetics Lab": [375, 375],
     "Restaurants": [320, 310],
@@ -41,6 +42,8 @@ const attractionPositions: Record<string, [number, number]> = {
 };
 
 const ParkMap = () => {
+    const navigate = useNavigate();
+
     return (
         <MapContainer
         className="size-fit rounded-2xl border-2 cretaceous-yellow-border"
@@ -56,12 +59,21 @@ const ParkMap = () => {
 
         {Object.entries(attractionPositions).map(([name, position]) => (
             <Marker key={name} position={position} icon={icon}>
-            <Popup>{name}</Popup>
+                <Popup>
+                <div className="flex flex-col items-center">
+                    <button
+                    className="text-blue-600 underline hover:text-blue-800"
+                    onClick={() => navigate(`/attraction/${encodeURIComponent(name)}`)}
+                    >
+                        <span className="mb-2 font-semibold">{name}</span>
+                    </button>
+                </div>
+                </Popup>
             </Marker>
         ))}
+
         </MapContainer>
     );
 };
-
 
 export default ParkMap;

@@ -1,54 +1,74 @@
-# React + TypeScript + Vite
+![React](https://img.shields.io/badge/React--61DAFB.svg?logo=react&logoColor=white) ![TypeScript](https://img.shields.io/badge/TypeScript--blue.svg?logo=typescript&logoColor=white) ![Vite](https://img.shields.io/badge/Vite--purple.svg?logo=vite&logoColor=white) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS--06B6D4.svg?logo=tailwindcss&logoColor=white) ![DaisyUI](https://img.shields.io/badge/DaisyUI-Component%20Library-purple.svg?logo=daisyui&logoColor=white) ![Leaflet](https://img.shields.io/badge/Leaflet-Map-green.svg?logo=leaflet&logoColor=white) ![Made with Love](https://img.shields.io/badge/Made%20with-%E2%9D%A4-red)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Cretaceous Park Frontend
 
-Currently, two official plugins are available:
+This is the frontend of **Cretaceous Park**, a React-based web application for exploring and managing a dinosaur-themed amusement park. It integrates with the Spring Boot backend via REST APIs.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌐 Technologies
 
-## Expanding the ESLint configuration
+* React
+* TypeScript
+* Vite
+* Tailwind CSS
+* DaisyUI
+* Leaflet (for interactive map)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📦 Project Structure
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+The code is organized into:
+
+* `components`: Reusable UI components (e.g., attraction cards, navbar, etc.)
+* `pages`: Route-specific views (e.g., login, dashboard, attraction detail)
+* `services`: API calls using native `fetch`
+
+## 🔧 Setup Instructions
+
+### Prerequisites
+
+* Node.js (v18 or later)
+* npm
+
+### Installation
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Run Development Server
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+npm run dev
 ```
+
+## 🧭 Features
+
+* 🔐 **Authentication**
+
+  * Login and Signup
+  * Auth state managed via JWT tokens stored client-side
+* 🗺️ **Dashboard**
+
+  * Interactive map of park zones and attractions using Leaflet
+* 📍 **Attractions & Zones**
+
+  * Browse all zones and attractions
+  * View detailed info on each attraction
+* 👤 **User Management**
+
+  * Add personal customer info after signup
+
+## 🔁 Backend Integration
+
+* REST API calls are made with `fetch`
+* Auth tokens are included in headers where required
+
+## 🚫 Environment Variables
+
+Currently, no `.env` variables are required.
+
+## 📌 To-Do / Planned Features
+
+* Full planner view with booking options
+* Booking management dashboard
+* Responsive UI improvements
+* Environment-based configuration
